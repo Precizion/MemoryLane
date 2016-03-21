@@ -31,6 +31,30 @@
             })
         }
 
+        $scope.clear = function () {
+            clearCounts();
+            $('#gameArea').hide();
+            $scope.cards = [];
+
+        }
+
+        //Shuffle deck once built
+        shuffle($scope.cards);
+
+        //Generates the Value of each card in a deck
+        function getValue(x) {
+            if (x % 2 == 0) {
+                return x;
+            }
+            return x - 1;
+        }
+
+        //Shuffle Function
+        function shuffle(deck) {
+            for (var j, x, i = deck.length; i; j = Math.floor(Math.random() * i), x = deck[--i], deck[i] = deck[j], deck[j] = x);
+            return deck;
+        }
+
         $scope.clickCard = function (card) {
 
 
@@ -79,5 +103,57 @@
                 }
             }
         };
+
+        function TurnHandler() {
+            if ($scope.PlayerTurn == "Player 2") {
+                $scope.PlayerTurn = "Player 1";
+            }
+            else {
+                $scope.PlayerTurn = "Player 2";
+            }
+        }
+
+        //Click Count Handler
+        function ClickCountHandler() {
+            if ($scope.PlayerTurn == "Player 1") {
+                $scope.Player1Clicks++;
+            } else {
+                $scope.Player2Clicks++;
+            }
+        }
+
+        function clearCounts() {
+            $scope.Player1Clicks = 0;
+            $scope.Player2Clicks = 0;
+            $scope.Player1PairsFound = 0;
+            $scope.Player2PairsFound = 0;
+        }
+
+        //Pair Found Count Handler
+        function PairFoundCountHandler() {
+            if ($scope.PlayerTurn == "Player 1") {
+                $scope.Player1PairsFound++;
+            } else {
+                $scope.Player2PairsFound++;
+            }
+        }
+
     }
+    //Sticky
+    function sticky_relocate() {
+        var window_top = $(window).scrollTop();
+        var div_top = $('#sticky-anchor').offset().top;
+        if (window_top > div_top) {
+            $('#sticky').addClass('stick')
+
+        } else {
+            $('#sticky').removeClass('stick');
+        }
+    }
+
+    $(function () {
+        $(window).scroll(sticky_relocate);
+        sticky_relocate();
+    });
+
 });
