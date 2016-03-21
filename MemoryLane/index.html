@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Take a trip down Memory Lane</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body background="Images/MemoryLaneRoadBackGround.jpg" ng-controller="MemoryGameController">
+
+    <md-content id="gameArea" class="md-padding">
+        <div class="well well-lg center" style="width:80%;">
+            <div style="width:80%; margin: 0 auto;">
+                <div layout="row" layout-wrap>
+                    <div flex="25" ng-repeat="card in cards">
+                        <md-card class="md-padding" ng-click="clickCard(card)">
+                            <img src="Images/MemoryLaneCarIcon.jpg" ng-if="{ hide: card.flipped }" style="width: 100%; height: auto; display: block; margin: auto;">
+                            <img src="Images/{{card.value}}.gif" ng-if="{hide: !card.flipped}" style="width: 100%; height: auto; display: block; margin: auto;">
+                        </md-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-content>
+
+    <div class="footer"></div>
+
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
+    <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+    <script src="bower_components/angular-aria/angular-aria.js" type="text/javascript"></script>
+    <script src="bower_components/angular-animate/angular-animate.js" type="text/javascript"></script>
+    <script src="bower_components/angular-material/angular-material.js" type="text/javascript"></script>
+
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/MemoryGame.ctrl.js"></script>
+
+</body>
+
+</html>

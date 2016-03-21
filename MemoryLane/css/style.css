@@ -1,0 +1,48 @@
+﻿.center{
+    margin: 0 auto;
+    text-align: center;
+}
+#sticky {
+    padding: 0.5ex;
+    font-size: 2em;
+    border-radius: 0.5ex;
+
+}
+#sticky.stick {
+    top: 0;
+    z-index: 10000;
+    border-radius: 0 0 0.5em 0.5em;
+    position: fixed;
+}
+#ScoreBoard{
+    margin-left: 80%;
+
+}
+.fontSmall{
+    font-size: 12px;
+}
+
+.footer{
+    padding-bottom: 300px;
+}
+
+
+.currentPlayer{
+    background-color: yellow;
+}
+
+
+
+
+/*div {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+span {
+    margin-top: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}*/
